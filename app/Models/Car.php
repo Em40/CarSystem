@@ -16,6 +16,6 @@ class Car extends Model
 
     public function carmodel()
     {
-        return $this->belongsTo(CarModel::class);
+        return $this->belongsTo(CarModel::class, 'car_models_id');
     }
 }
