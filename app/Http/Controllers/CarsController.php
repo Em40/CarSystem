@@ -17,9 +17,12 @@ class CarsController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $cars = Car::with('manufacturer')->select('cars.*')->join('manufacturers', 'cars.manufacturer_id', '=', 'manufacturers.id')
+        $cars = Car::with('manufacturer')->select('cars.*')
+            ->join('manufacturers', 'cars.manufacturer_id', '=', 'manufacturers.id')
             ->join('car_models', 'cars.car_models_id', '=', 'car_models.id')
-            ->where('manufacturers.name' , 'LIKE', '%'.$search.'%')->get();
+            ->where('manufacturers.name' , 'LIKE', '%'.$search.'%')
+            ->orWhere('car_models.name', 'LIKE', '%'.$search.'%')
+            ->orWhere('production_year', 'LIKE', '%'.$search.'%')->get();
         return view('cars_list', compact('cars'));
     }
 
