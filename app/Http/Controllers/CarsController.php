@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CarsController extends Controller
 {
@@ -12,6 +13,16 @@ class CarsController extends Controller
         $cars = Car::all();
         return view('cars_list', compact('cars'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $cars = Car::with('manufacturer')->select('cars.*')->join('manufacturers', 'cars.manufacturer_id', '=', 'manufacturers.id')
+            ->join('car_models', 'cars.car_models_id', '=', 'car_models.id')
+            ->where('manufacturers.name' , 'LIKE', '%'.$search.'%')->get();
+        return view('cars_list', compact('cars'));
+    }
+
     public function add()
     {
         return view('add_car');

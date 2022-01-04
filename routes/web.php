@@ -43,6 +43,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/cars_list',[CarsController::class, 'index'])->name('cars_list');
 
     Route::get('/car',[CarsController::class, 'add']);
+    Route::get('/search',[CarsController::class, 'search']);
     Route::post('/car',[CarsController::class, 'create']);
 
     Route::get('/car/{car}', [CarsController::class, 'edit']);

@@ -14,6 +14,18 @@
                     <div class="flex-auto text-right mt-2">
                         <a href="/car" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Add Car</a>
                     </div>
+
+                    <div class="col-md-4" style="margin-left: auto; margin-right: 5px;">
+                        <form action="/search" method="get">
+                            {{ csrf_field() }}
+                            <div class="input-group">
+                                <input type="search" name="search" class="form-control">
+                                <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <table class="w-full text-md rounded mb-4">
                     <thead>
