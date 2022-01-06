@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManufacturersController;
 use App\Http\Controllers\CarModelsController;
 use App\Http\Controllers\CarsController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +49,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
     Route::get('/car/{car}', [CarsController::class, 'edit']);
     Route::post('/car/{car}', [CarsController::class, 'update']);
+
+    Route::get('image-upload', [ ImageController::class, 'imageUpload' ])->name('image.upload');
+    Route::post('image-upload', [ ImageController::class, 'imageUploadPost' ])->name('image.upload.post');
+
+    Route::get('/image', [ImageController::class, 'index' ])->name('image');
+    Route::post('/image/{img}', [ImageController::class, 'delete']);
 
 });
