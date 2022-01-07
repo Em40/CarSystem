@@ -1,8 +1,8 @@
-# CarUs
+# CarSystem
 
 ## Idea
 This site is catalog for cars for yourself and your family.
-CarUs is a project of car info. Information on car data contains travelled distance, manufacturer, model and name. CarUs information is collected from publicly available sources. You can search cars by: Year, Models and Manufacturers.
+CarSystem is a project of car info. Information on car data contains travelled distance, manufacturer, model and type. CarSystem information is collected from publicly available sources. You can search cars by: Year, Models and Manufacturers.
 
 ## How to start
 * run composer install
@@ -10,32 +10,35 @@ CarUs is a project of car info. Information on car data contains travelled dista
 * run all migrates
 * if you want to seed databse run - php artisan db:seed
 
-## Seeded Users
-1. Email: "admin@admin.admin"; Password: "admin";
-
 ## Project
 Project has seeds for all database models
 
 ### Models
-1. Manufacturer
+1. Manufacturers
     * id:bigint
     * name:varchar
     * founded_on:date
 
-2. Models_car
+2. Car_models
     * id:bigint
     * name:varchar
     * manufacturer_id:bigint - references(Manufacturer)
 
-3. Car
+3. Cars
     * id:bigint
     * name:varchar
     * production_year:date
     * travelled_kilometers:int
-    * models_car_id:bigint - references(Models_car)
-    * manufacturer_id:bigint - references(Manufacturer)
+    * car_models_id:bigint - references(Car_models)
+    * manufacturer_id:bigint - references(Manufacturers)
 
-4. User
+4. Images
+    * id:bigint
+    * description:varchar
+    * path:varchar
+    * url:varchar
+
+5. User
     * id:bigint
     * name:varchar
     * email:varchar
@@ -46,26 +49,15 @@ Project has seeds for all database models
 * all models has created_at:timestamp and updated_at:timestamp
 
 ### Controllers
-In Admin folder we have 
-* ManufacturerCrudController
-* Models_carCrudController 
-* CarCrudController
+We have the controllers with basic CRUD operations
 
-where is functionality for CRUD operations on models.
-
-Also we have
-* Models_carController
-* CarsController 
-* IndexController
-
-where we use it for public part to list models, and in CarsController we can search through cars by "Year",  "Models", "Manufacturers"
+* ManufacturersController
+* CarModelsController 
+* CarsController (in CarsController we can search through cars by "Production date",  "Models", "Manufacturers")
+* ImageController
 
 ### Views
-In resources/views/ we have the following architecture
-* folder layouts - here is stored app layout
-* folder cars - here is stored all views for public part of cars
-* folder index - here is stored the view for home page
-* folder errors - for error pages
+In resources/views/ we have all the views with for every function the app has... (create, edit, delete, list all items, and search)
 
 ### Routes
 All public routes are in web.php
