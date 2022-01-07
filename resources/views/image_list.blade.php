@@ -18,7 +18,7 @@
                 <table class="w-full text-md rounded mb-4">
                     <thead>
                     <tr class="border-b">
-                        <th class="text-left p-3 px-5">Category</th>
+
                         <th class="text-left p-3 px-5">Logo</th>
                         <th class="text-left p-3 px-5">Actions</th>
                         <th></th>
@@ -27,9 +27,7 @@
                     <tbody>
                     @foreach($img as $image)
                         <tr class="border-b hover:bg-orange-100">
-                            <td class="p-3 px-5">
-                                {{$image->description}}
-                            </td>
+
                             <td>
                                 <img src="{{$image->url}}" width="100px">
                             </td>
