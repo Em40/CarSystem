@@ -8,7 +8,6 @@ CarSystem is a project of car info. Information on car data contains travelled d
 * run composer install
 * make .env file in root directory and configurate it
 * run all migrates
-* if you want to seed databse run - php artisan db:seed
 
 ## Project
 Project has seeds for all database models
