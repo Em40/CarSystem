@@ -9,9 +9,6 @@ CarSystem is a project of car info. Information on car data contains travelled d
 * make .env file in root directory and configurate it
 * run all migrates
 
-## Project
-Project has seeds for all database models
-
 ### Models
 1. Manufacturers
     * id:bigint
