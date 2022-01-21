@@ -16,7 +16,7 @@
                         @if ($errors->has('name'))
                             <span class="text-danger">{{ $errors->first('name') }}</span>
                         @endif
-                        <textarea name="manufacturer_id" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"  placeholder='Enter manufacturer name'></textarea>
+                        <textarea name="manufacturer_id" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"  placeholder='Enter manufacturer ID'></textarea>
                         @if ($errors->has('manufacturer_id'))
                             <span class="text-danger">{{ $errors->first('manufacturer_id') }}</span>
                         @endif

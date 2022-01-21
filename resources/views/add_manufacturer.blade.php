@@ -16,7 +16,7 @@
                         @if ($errors->has('name'))
                             <span class="text-danger">{{ $errors->first('name') }}</span>
                         @endif
-                        <textarea name="founded_on" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"  placeholder='Enter foundation date'></textarea>
+                        <textarea name="founded_on" class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"  placeholder='Enter foundation date (YYYY-MM-DD)'></textarea>
                         @if ($errors->has('founded_on'))
                             <span class="text-danger">{{ $errors->first('founded_on') }}</span>
                         @endif
